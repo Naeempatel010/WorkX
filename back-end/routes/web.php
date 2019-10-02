@@ -19,8 +19,24 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/reviewHome', 'HomeController@reviewHome');
 
-Route::get('/review', 'HomeController@review');
+//USER-REVIEW relationship
+Route::get('/reviewHome', 'ReviewController@reviewHome');
 
-Route::post('/postReview', 'HomeController@postReview');
+Route::get('/review', 'ReviewController@review');
+
+Route::post('/postReview', 'ReviewController@postReview');
+
+Route::get('/upvoteReview/{id}', 'ReviewController@upvoteReview');
+
+Route::get('/downvoteReview/{id}', 'ReviewController@downvoteReview');
+
+
+
+
+//USER-CREATOR relationship
+Route::get('/ideaHome', 'CreatorController@ideaHome');
+
+Route::get('/idea', 'CreatorController@idea');
+
+Route::post('/postIdea', 'CreatorController@postIdea');

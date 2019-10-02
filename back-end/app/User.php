@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Review');
     }
+
+    public function creator()
+    {
+        return $this->hasOne('App\Creator');
+    }
 }
