@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//USER-REVIEW relationship
+//USER-REVIEW relationships
 Route::get('/reviewHome', 'ReviewController@reviewHome');
 
 Route::get('/review', 'ReviewController@review');
@@ -34,9 +34,23 @@ Route::get('/downvoteReview/{id}', 'ReviewController@downvoteReview');
 
 
 
-//USER-CREATOR relationship
+//USER-CREATOR relationships
 Route::get('/ideaHome', 'CreatorController@ideaHome');
 
 Route::get('/idea', 'CreatorController@idea');
 
 Route::post('/postIdea', 'CreatorController@postIdea');
+
+
+
+//INVESTOR-IDEA-INVESTMENT relationships
+Route::get('/investAmount/{id}', 'InvestorController@investAmount');
+
+Route::post('/startInvestment', 'InvestorController@startInvestment');
+
+
+
+//SEEKER-APPLICATION-JOB-JOB_APPLICATION relationships
+Route::get('/jobHome', 'SeekerController@jobHome');
+
+Route::get('/jobApplication', 'SeekerController@jobApplication');

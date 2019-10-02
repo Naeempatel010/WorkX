@@ -10,4 +10,14 @@ class Idea extends Model
     {
     	return $this->belongsTo('App\Creator');
     }
+
+    public function investments()
+    {
+        return $this->hasMany('App\Investments');
+    }
+
+    public function startup()
+    {
+        return $this->hasOne('App\Startup');
+    }
 }

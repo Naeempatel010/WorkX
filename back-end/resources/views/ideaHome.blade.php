@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">All Ideas</div>
 
@@ -21,6 +21,8 @@
                                     <th>poc</th>
                                     <th>Status</th>
                                     <th>Investment needed</th>
+                                    <th>Chat with the creator?</th>
+                                    <th>Do you want to invest?</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,6 +34,16 @@
                                         <td>{{ $idea->poc }}</td>
                                         <td>{{ $idea->status }}</td>
                                         <td>{{ $idea->investment }}</td>
+                                        <td>
+                                            <a href="#" style="color: blue;">
+                                                CHAT
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="/investAmount/{{ $idea->id }}" style="color: green;">
+                                                Invest
+                                            </a>
+                                        </td>
                                     </tr> 
                                 @endforeach
                             </tbody>

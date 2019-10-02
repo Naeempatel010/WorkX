@@ -17,8 +17,8 @@
                     <ul>
                         <li><a href="/review">Review post</a></li>
                         <li><a href="/idea">Submit idea</a></li>
-                        <li><a href="">Invest in idea</a></li>
-                        <li><a href="">Apply for job</a></li>
+                        <li><a href="/ideaHome">Invest in idea</a></li>
+                        <li><a href="/jobApplication">Apply for job</a></li>
                     </ul>
                 </div>
             </div>

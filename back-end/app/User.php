@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Creator');
     }
+
+    public function investor()
+    {
+        return $this->hasOne('App\Investor');
+    }
+
+    public function seeker()
+    {
+        return $this->hasOne('App\Seeker');
+    }
 }
