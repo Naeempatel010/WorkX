@@ -53,4 +53,10 @@ Route::post('/startInvestment', 'InvestorController@startInvestment');
 //SEEKER-APPLICATION-JOB-JOB_APPLICATION relationships
 Route::get('/jobHome', 'SeekerController@jobHome');
 
+Route::get('/profile', 'SeekerController@profile');
+
+Route::get('/updateProfile', 'SeekerController@updateProfile');
+
+Route::post('/processUpdateProfileForm/{id}', 'SeekerController@processUpdateProfileForm');
+
 Route::get('/jobApplication', 'SeekerController@jobApplication');

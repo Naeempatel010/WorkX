@@ -35,7 +35,7 @@
                             </tbody>
                         </table>
                         <div class="links">
-                            <a href="/idea">Post an idea</a>
+                            <a href="/updateProfile">Update profile</a>
                         </div>
                     </div>
                 </div>

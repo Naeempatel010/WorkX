@@ -18,7 +18,8 @@
                         <li><a href="/review">Review post</a></li>
                         <li><a href="/idea">Submit idea</a></li>
                         <li><a href="/ideaHome">Invest in idea</a></li>
-                        <li><a href="/jobApplication">Apply for job</a></li>
+                        <li><a href="/profile">Update profile</a></li>
+                        <li><a href="/jobHome">Apply for job</a></li>
                     </ul>
                 </div>
             </div>
