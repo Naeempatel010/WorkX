@@ -31,7 +31,7 @@
                                     <tr>
                                         <td>{{ $idea->title }}</td>
                                         <td>{{ $idea->description }}</td>
-                                        <td>{{ $idea->poc }}</td>
+                                        <td><a href="/downloadPoc/{{ $idea->poc }}">{{ $idea->poc }}</a></td>
                                         <td>{{ $idea->status }}</td>
                                         <td>{{ $idea->investment }}</td>
                                         <td>

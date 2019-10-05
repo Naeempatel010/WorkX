@@ -20,4 +20,9 @@ class Idea extends Model
     {
         return $this->hasOne('App\Startup');
     }
+
+    public function poc()
+    {
+        return $this->hasOne('App\Poc');
+    }
 }

@@ -15,4 +15,9 @@ class Seeker extends Model
     {
         return $this->belongsToMany('App\Jobs');
     }
+
+    public function resume()
+    {
+    	return $this->hasOne('App\Resume');
+    }
 }

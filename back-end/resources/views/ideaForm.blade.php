@@ -8,7 +8,7 @@
                 <div class="card-header">Post Idea</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/postIdea">
+                    <form method="POST" action="/postIdea" enctype="multipart/form-data">
                         {{csrf_field()}}
 
                         <div class="form-group row">
@@ -31,7 +31,7 @@
                             <label for="poc" class="col-md-4 col-form-label text-md-right">POC upload</label>
 
                             <div class="col-md-6">
-                                <input id="poc" type="text" class="form-control" name="poc">
+                                <input id="poc" type="file" class="form-control" name="poc">
                             </div>
                         </div>
 

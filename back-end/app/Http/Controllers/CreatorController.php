@@ -68,15 +68,31 @@ class CreatorController extends Controller
         //add form data in ideas table
         $data = $data->all();
 
+        $name = $data['poc']->getClientOriginalName();
+        $file = (object)$data['poc'];
+        $file->move(public_path().'/files/', $name);
+        /*return gettype($file);*/
+
         $idea = new Idea();
         $idea->creator_id = $creator_id;
         $idea->title = $data['title'];
         $idea->description = $data['description'];
-        $idea->poc = $data['poc'];
+        $idea->poc = $name;
         $idea->investment = $data['investment'];
         $idea->status = 'No Investment yet.';
         $idea->save();
         /*return $data;*/
         return redirect('/ideaHome');
+    }
+
+    public function downloadPoc($name)
+    {
+        $file = public_path()."/files/".$name;
+
+        $headers = [
+              'Content-Type' => 'application/pdf',
+           ];
+
+        return response()->download($file, $name, $headers);
     }
 }

@@ -32,6 +32,26 @@ class SeekerController extends Controller
         return view('profileForm');
     }
 
+    public function processProfile(Request $data)
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+
+        //resume pdf upload
+        $name = $data['resume']->getClientOriginalName();
+        $file = (object)$data['resume'];
+        $file->move(public_path().'/files/',$name);
+        
+        $seeker = new Seeker();
+
+        $seeker->user_id = $user_id;
+        $seeker->resume = $name;
+        $seeker->skills = $data['skills'];
+        $seeker->save();
+
+        return redirect('/home');
+    }
+
     public function updateProfile()
     {
         $loggedInUser = Auth::user();
@@ -66,5 +86,21 @@ class SeekerController extends Controller
         $jobs = Job::all();
 
         return view('jobHome')->with('jobs',$jobs);
+    }
+
+    public function downloadResume()
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+
+        $seeker = User::find($user_id)->seeker;
+        $name = $seeker->resume;
+
+        $file = public_path().'/files/'.$name;
+        $headers = [
+            'Content-Type' => 'application/pdf',
+        ];
+
+        return response()->download($file,$name,$headers);
     }
 }

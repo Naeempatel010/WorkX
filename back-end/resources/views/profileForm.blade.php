@@ -8,14 +8,14 @@
                 <div class="card-header">Profile form</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/jobHome">
+                    <form method="POST" action="/processProfile" enctype="multipart/form-data">
                         {{csrf_field()}}
 
                         <div class="form-group row">
                             <label for="resume" class="col-md-4 col-form-label text-md-right">Resume</label>
 
                             <div class="col-md-6">
-                                <input id="resume" type="text" class="form-control" name="resume">
+                                <input id="resume" type="file" class="form-control" name="resume">
                             </div>
                         </div>
 
@@ -35,6 +35,7 @@
                             </div>
                         </div>
                     </form>
+                    <a href="/downloadResume">Download Current Resume</a>
                 </div>
             </div>
         </div>

@@ -41,6 +41,8 @@ Route::get('/idea', 'CreatorController@idea');
 
 Route::post('/postIdea', 'CreatorController@postIdea');
 
+Route::get('/downloadPoc/{name}', 'CreatorController@downloadPoc');
+
 
 
 //INVESTOR-IDEA-INVESTMENT relationships
@@ -55,8 +57,12 @@ Route::get('/jobHome', 'SeekerController@jobHome');
 
 Route::get('/profile', 'SeekerController@profile');
 
+Route::post('/processProfile', 'SeekerController@processProfile');
+
 Route::get('/updateProfile', 'SeekerController@updateProfile');
 
 Route::post('/processUpdateProfileForm/{id}', 'SeekerController@processUpdateProfileForm');
 
 Route::get('/jobApplication', 'SeekerController@jobApplication');
+
+Route::get('/downloadResume', 'SeekerController@downloadResume');
