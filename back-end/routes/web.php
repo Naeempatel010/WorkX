@@ -20,6 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
+
+
 //USER-REVIEW relationships
 Route::get('/reviewHome', 'ReviewController@reviewHome');
 
@@ -34,6 +37,7 @@ Route::get('/downvoteReview/{id}', 'ReviewController@downvoteReview');
 
 
 
+
 //USER-CREATOR relationships
 Route::get('/ideaHome', 'CreatorController@ideaHome');
 
@@ -43,12 +47,28 @@ Route::post('/postIdea', 'CreatorController@postIdea');
 
 Route::get('/downloadPoc/{name}', 'CreatorController@downloadPoc');
 
+Route::get('/showIdeas', 'CreatorController@showIdeas');
+
+Route::get('/showStartups', 'CreatorController@showStartups');
+
+Route::get('/startupsDetails/{id}', 'CreatorController@startupsDetails');
+
+
+
 
 
 //INVESTOR-IDEA-INVESTMENT relationships
 Route::get('/investAmount/{id}', 'InvestorController@investAmount');
 
 Route::post('/startInvestment', 'InvestorController@startInvestment');
+
+Route::get('/showInvestments', 'InvestorController@showInvestments');
+
+Route::get('/startupsInvestments/{id}', 'InvestorController@startupsInvestments');
+
+Route::get('/investorDetails/{id}', 'InvestorController@investorDetails');
+
+
 
 
 
@@ -66,3 +86,13 @@ Route::post('/processUpdateProfileForm/{id}', 'SeekerController@processUpdatePro
 Route::get('/jobApplication', 'SeekerController@jobApplication');
 
 Route::get('/downloadResume', 'SeekerController@downloadResume');
+
+Route::get('/downloadResume2/{name}', 'SeekerController@downloadResume2');
+
+Route::get('/startupsJobs/{id}', 'SeekerController@startupsJobs');
+
+Route::get('/showApplications/{id}', 'SeekerController@showApplications');
+
+Route::get('/confirmApplication/{id}/{job_id}', 'SeekerController@confirmApplication');
+
+Route::get('/myApplications', 'SeekerController@myApplications');

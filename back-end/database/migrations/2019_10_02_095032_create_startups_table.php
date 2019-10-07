@@ -16,6 +16,8 @@ class CreateStartupsTable extends Migration
         Schema::create('startups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('idea_id');
+            $table->integer('creator_id');
+            $table->string('company_name');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\User;
 use App\Job;
 use App\Seeker;
 use App\Startup;
+use App\Employee;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -103,4 +104,70 @@ class SeekerController extends Controller
 
         return response()->download($file,$name,$headers);
     }
+
+    public function downloadResume2($name)
+    {
+        $file = public_path().'/files/'.$name;
+        $headers = [
+            'Content-Type' => 'application/pdf',
+        ];
+
+        return response()->download($file,$name,$headers);
+    }
+
+    public function startupsJobs($id)
+    {
+        $jobs = Startup::find($id)->jobs;
+        return view('startupsJobs')->with('jobs',$jobs);
+    }
+
+    public function showApplications($id)
+    {
+        $seekers = Job::find($id)->seekers;
+        return view('showApplications')->with('seekers',$seekers)->with('job_id',$id);  
+    }
+
+    public function myApplications()
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+
+        $seeker = User::find($user_id)->seeker;
+        $seeker_id = $seeker->id;
+
+        $applications = Seeker::find($seeker_id)->jobs;
+        return $applications;  
+    }
+
+    /*public function confirmApplication($id, $job_id)
+    {
+        $job = Job::find($job_id);
+        $job->vacancy = $job->vacancy - 1;
+
+        if ($job->vacancy == 0)
+        {
+            $hired = new Hire();
+            $hired->startup_id = $job->startup_id;
+            $hired->type = $job->type;
+            $hired->description = $job->description;
+            $hired->salary = $job->salary;
+            $hired->save();
+            $job->delete();
+        }
+        else
+        {
+            $job->save();
+        }
+
+        $employee = new Employee();
+        $employee->seeker_id = $id;
+        $employee->save();
+
+        $employee->jobs()->attach($job);
+
+        $startup = Job::find($job_id)->startup;
+
+
+        return redirect('/home');
+    }*/
 }

@@ -61,6 +61,22 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                    <a class="dropdown-item" href="/showInvestments">
+                                        My Investments
+                                    </a>
+
+                                    <a class="dropdown-item" href="/showIdeas">
+                                        My Ideas
+                                    </a>
+
+                                    <a class="dropdown-item" href="/showStartups">
+                                        My Start-ups
+                                    </a>
+
+                                    <a class="dropdown-item" href="/myApplications">
+                                        My Job Applications
+                                    </a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

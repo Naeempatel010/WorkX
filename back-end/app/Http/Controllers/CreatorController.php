@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Creator;
 use App\Idea; 
+use App\Startup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -79,6 +80,7 @@ class CreatorController extends Controller
         $idea->description = $data['description'];
         $idea->poc = $name;
         $idea->investment = $data['investment'];
+        $idea->company_name = $data['company_name'];
         $idea->status = 'No Investment yet.';
         $idea->save();
         /*return $data;*/
@@ -94,5 +96,35 @@ class CreatorController extends Controller
            ];
 
         return response()->download($file, $name, $headers);
+    }
+
+    public function showIdeas()
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+
+        $creator = User::find($user_id)->creator;
+        $creator_id = $creator->id;
+
+        $ideas = Creator::find($creator_id)->ideas;
+        return $ideas; 
+    }
+
+    public function showStartups()
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+        
+        $creator = User::find($user_id)->creator;
+        $creator_id = $creator->id;
+
+        $startups = Creator::find($creator_id)->startups;
+        return view('showStartups')->with('startups',$startups);
+    }
+
+    public function startupsDetails($id)
+    {
+        $idea = Startup::find($id)->idea;
+        return $idea;
     }
 }

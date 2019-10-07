@@ -13,7 +13,7 @@ class Idea extends Model
 
     public function investments()
     {
-        return $this->hasMany('App\Investments');
+        return $this->hasMany('App\Investment');
     }
 
     public function startup()

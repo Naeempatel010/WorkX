@@ -21,6 +21,7 @@ class CreateIdeasTable extends Migration
             $table->string('status');
             $table->string('poc');
             $table->integer('investment');
+            $table->string('company_name');
             $table->timestamps();
         });
     }

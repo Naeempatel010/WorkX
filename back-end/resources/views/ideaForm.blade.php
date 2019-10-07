@@ -28,6 +28,14 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="company_name" class="col-md-4 col-form-label text-md-right">Company Name</label>
+
+                            <div class="col-md-6">
+                                <input id="company_name" type="text" class="form-control" name="company_name">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="poc" class="col-md-4 col-form-label text-md-right">POC upload</label>
 
                             <div class="col-md-6">

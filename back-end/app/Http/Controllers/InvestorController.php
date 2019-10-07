@@ -7,6 +7,7 @@ use App\User;
 use App\Investor;
 use App\Idea; 
 use App\Investment;
+use App\Startup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -70,5 +71,33 @@ class InvestorController extends Controller
         $investment->save();
 
         return redirect('/ideaHome');
+    }
+
+    public function showInvestments()
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+
+        $investor = User::find($user_id)->investor;
+        $investor_id = $investor->id;
+
+        $investments = Investor::find($investor_id)->investments;
+        return $investments; 
+    }
+
+    public function startupsInvestments($id)
+    {
+        $idea = Startup::find($id)->idea;
+        $idea_id = $idea->id;
+
+        $investments = Idea::find($idea->id)->investments;
+
+        return view('startupsInvestments')->with('investments',$investments);
+    }
+
+    public function investorDetails($id)
+    {
+        $investor = Investor::find($id)->user;
+        return $investor;
     }
 }

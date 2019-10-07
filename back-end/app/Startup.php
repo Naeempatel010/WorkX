@@ -10,4 +10,14 @@ class Startup extends Model
     {
         return $this->belongsTo('App\Idea');
     }
+
+    public function creator()
+    {
+    	return $this->belongsTo('App\Creator');
+    }
+
+    public function jobs()
+    {
+    	return $this->hasMany('App\Job');
+    }
 }

@@ -15,4 +15,9 @@ class Creator extends Model
     {
     	return $this->hasMany('App\Idea');
     }
+
+    public function startups()
+    {
+    	return $this->hasMany('App\Startup');
+    }
 }
