@@ -17,7 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@home');
+
+
+Route::get('/translation', function () {
+    return view('translation');
+});
 
 
 
@@ -28,7 +33,17 @@ Route::get('/reviewHome', 'ReviewController@reviewHome');
 
 Route::get('/review', 'ReviewController@review');
 
+Route::get('/reviewFormSpeak', 'ReviewController@reviewFormSpeak');
+
+Route::get('/recordTitle', 'ReviewController@recordTitle');
+
+Route::get('/recordDescription', 'ReviewController@recordDescription');
+
+Route::get('/recordReview', 'ReviewController@recordReview');
+
 Route::post('/postReview', 'ReviewController@postReview');
+
+Route::post('/postReviewAudio', 'ReviewController@postReviewAudio');
 
 Route::get('/upvoteReview/{id}', 'ReviewController@upvoteReview');
 
@@ -96,3 +111,13 @@ Route::get('/showApplications/{id}', 'SeekerController@showApplications');
 Route::get('/confirmApplication/{id}/{job_id}', 'SeekerController@confirmApplication');
 
 Route::get('/myApplications', 'SeekerController@myApplications');
+
+
+
+
+
+//Chat page
+Route::get('/chatHome', 'HomeController@chatHome');
+Route::get('user/register',['uses'=>'UserController@register','as'=>'user.register']);
+Route::resource('conversation','ConversationController');
+Route::resource('message','MessageController');

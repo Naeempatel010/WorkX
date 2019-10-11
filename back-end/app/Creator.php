@@ -20,4 +20,9 @@ class Creator extends Model
     {
     	return $this->hasMany('App\Startup');
     }
+
+    public function conversations()
+    {
+        return $this->hasMany('App\Conversation');
+    }
 }

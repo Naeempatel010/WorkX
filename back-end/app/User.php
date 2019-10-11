@@ -56,4 +56,14 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Seeker');
     }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
+    public function conversations()
+    {
+        return \App\Conversation::where('user1',$this->id)->orWhere('user2',$this->id)->get();
+    }
 }

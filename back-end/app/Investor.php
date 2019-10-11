@@ -15,5 +15,10 @@ class Investor extends Model
     {
         return $this->hasMany('App\Investment');
     }
+
+    public function conversations()
+    {
+        return $this->hasMany('App\Conversation');
+    }
     
 }

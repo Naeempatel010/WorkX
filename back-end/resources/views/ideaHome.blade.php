@@ -35,7 +35,7 @@
                                         <td>{{ $idea->status }}</td>
                                         <td>{{ $idea->investment }}</td>
                                         <td>
-                                            <a href="#" style="color: blue;">
+                                            <a href="/chatHome" style="color: blue;">
                                                 CHAT
                                             </a>
                                         </td>

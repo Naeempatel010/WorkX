@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Investor;
 use App\Review; 
+use App\Conversation;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -24,7 +26,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function chatHome()
+    {
+        $users = User::where('id','!=',Auth::user()->id)->get();
+        $conversations = Auth::user()->conversations();
+        return view('chatHome',compact('users','conversations'));
+    }
+
+    public function home()
     {
         return view('home');
     }

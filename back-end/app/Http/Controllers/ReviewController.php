@@ -32,6 +32,11 @@ class ReviewController extends Controller
         return view('reviewForm');
     }
 
+    public function reviewFormSpeak()
+    {
+        return view('reviewFormSpeak');
+    }
+
 
     public function postReview(Request $data)
     {
@@ -49,6 +54,43 @@ class ReviewController extends Controller
         /*return $data;*/
         return redirect('/reviewHome');
     }
+
+    public function postReviewAudio(Request $data)
+    {
+        $loggedInUser = Auth::user();
+        $user_id = $loggedInUser->id;
+
+        $data = $data->all();
+
+        /*$name = $data['review']->getClientOriginalName();
+        $file = (object)$data['review'];
+        $file->move(public_path().'/files/', $name);*/
+
+        $review = new Review();
+        $review->user_id = $user_id;
+        $review->title = $data['title'];
+        $review->description = $data['description'];
+        $review->review = $data['review'];
+        $review->save();
+        /*return $data;*/
+        return redirect('/reviewHome');
+    }
+
+
+    /*public function recordTitle()
+    {
+        return view('translation');        
+    }
+
+    public function recordDescription()
+    {
+        
+    }
+
+    public function recordReview()
+    {
+        
+    }*/
 
     public function upvoteReview($id)
     {
